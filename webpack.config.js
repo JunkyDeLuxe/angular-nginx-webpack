@@ -4,23 +4,27 @@ var copyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	entry: {
 		app: './src/app.js',
-		vendor: [
-			"angular", 
-			"angular-ui-router", 
+		'angular-vendors': [
 			"babel-polyfill",
+			"angular",
+			"angular-ui-router",
+			"angular-ui-bootstrap"
+		],
+		libs: [
 			"jquery",
-			"moment"
+			"moment",
+			"bootstrap-less/bootstrap/bootstrap.less"
 		]
 	},
 	output: {
-		path: './dist',
-		filename: 'js/app.js'
+		path: "./dist",
+		filename: "js/[name].js"
 	},
 	plugins: [
-		new copyWebpackPlugin([
-			{ from: './src/index.html' }
-		]),
-		new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"js/vendor.js")
+		new copyWebpackPlugin([ { from: './src/index.html' } ]),
+
+		// CHUNKS //
+		new webpack.optimize.CommonsChunkPlugin("./js/init.js")
 	],
 	module: {
 		loaders: [
@@ -29,22 +33,29 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'babel-loader'
 			},
-			// {
-			// 	test: /\.(woff|woff2|ttf|eot)$/,
-			// 	loader: 'file'
-			// },
 			{
-			 	test: /\.(jpe?g|png|gif|svg)$/i,
-				loader: 'file-loader?name=/img/[name].[ext]'
+			 	test: /\.(jpe?g|png|gif)$/i,
+				exclude: '/node_modules',
+				loader: 'file-loader?name=/img/[name].[ext]',
 			},
 			{
 				test: /\.html$/,
-				loader: "html-loader"
+				exclude: '/node_modules',
+				loader: "html-loader",
 			},
 			{
-				test: /\.css$/,
-				loaders: ['style', 'css']
-			}
-		]
+				test: /\.less$/,
+				exclude: '/node_modules',
+				loader: "style!css!less"
+			},
+			{
+				test: /\.(woff|woff2|ttf|eot|svg)$/,
+				loader: 'file-loader?name=/fonts/[name].[ext]'
+			},
+			// {
+			// 	test: /\.css$/,
+			// 	loaders: ['style', 'css']
+			// }
+		],
 	}
 };
