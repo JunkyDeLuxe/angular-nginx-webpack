@@ -1,0 +1,33 @@
+{
+  "name": "angular-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-ui-router": "^0.3.2",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
+    "del": "^2.2.2",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-dest": "^0.2.3",
+    "html-loader": "^0.4.4",
+    "jquery": "^3.1.1",
+    "moment": "^2.17.1",
+    "style-loader": "^0.13.1",
+    "vinyl-paths": "^2.1.0",
+    "webpack": "^1.14.0",
+    "webpack-stream": "^3.2.0",
+    "webpack-vendor-chunk-plugin": "^1.0.0"
+  }
+}
