@@ -10,8 +10,8 @@ import _ from 'lodash';
 /* custom angular modules */
 import home from './home/home-module';
 
-// /* bootstrap less */
-// import css from 'bootstrap-less/bootstrap/bootstrap.less';
+/* LESS */
+import './app-less.js';
 
 angular.module('app', 
 	[

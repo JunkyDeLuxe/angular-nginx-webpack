@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var copyWebpackPlugin = require('copy-webpack-plugin');
+var extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -10,8 +11,7 @@ module.exports = {
 			'angular-ui-router',
 			'angular-ui-bootstrap',
 			'jquery',
-			'moment',
-			'bootstrap-less/bootstrap/bootstrap.less'
+			'moment'
 		]
 	},
 	output: {
@@ -20,7 +20,8 @@ module.exports = {
 	},
 	plugins: [
 		new copyWebpackPlugin([ { from: './src/index.html' } ]),
-		new webpack.optimize.CommonsChunkPlugin("vendors", "./js/vendors.js", Infinity)
+		new webpack.optimize.CommonsChunkPlugin("vendors", "./js/vendors.js", Infinity),
+		new extractTextPlugin("./css/styles.css")
 	],
 	module: {
 		loaders: [
@@ -42,16 +43,13 @@ module.exports = {
 			{
 				test: /\.less$/,
 				exclude: '/node_modules',
-				loader: "style!css!less"
+				// loader: "style!css!less"
+				loader: extractTextPlugin.extract("style-loader", "css-loader!less-loader")
 			},
-			{
-				test: /\.(woff|woff2|ttf|eot|svg)$/,
+			{ 
+				test: /\.(ttf|eot|svg|woff2|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
 				loader: 'file-loader?name=/fonts/[name].[ext]'
-			},
-			// {
-			// 	test: /\.css$/,
-			// 	loaders: ['style', 'css']
-			// }
-		],
+			}
+		]
 	}
 };
