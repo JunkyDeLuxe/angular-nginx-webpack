@@ -8,6 +8,7 @@ module.exports = {
 			'lodash',
 			'angular', 
 			'angular-ui-router',
+			'angular-ui-bootstrap',
 			'jquery',
 			'moment',
 			'bootstrap-less/bootstrap/bootstrap.less'
