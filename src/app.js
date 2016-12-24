@@ -1,17 +1,17 @@
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
-import uibootstrap from 'angular-ui-bootstrap';
+// import uibootstrap from 'angular-ui-bootstrap';
 // or import accordion from 'angular-ui-bootstrap/src/accordion'; for only accordion
 
-import $ from 'jquery';
-import moment from 'moment';
+// import $ from 'jquery';
+// import moment from 'moment';
+import _ from 'lodash';
 
 /* custom angular modules */
 import home from './home/home-module';
 
 // /* bootstrap less */
-// import "bootstrap-less";
-import css from 'bootstrap-less/bootstrap/bootstrap.less';
+// import css from 'bootstrap-less/bootstrap/bootstrap.less';
 
 angular.module('app', 
 	[

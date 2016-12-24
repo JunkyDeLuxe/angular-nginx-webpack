@@ -4,27 +4,22 @@ var copyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	entry: {
 		app: './src/app.js',
-		'angular-vendors': [
-			"babel-polyfill",
-			"angular",
-			"angular-ui-router",
-			"angular-ui-bootstrap"
-		],
-		libs: [
-			"jquery",
-			"moment",
-			"bootstrap-less/bootstrap/bootstrap.less"
+		vendors: [ 
+			'lodash',
+			'angular', 
+			'angular-ui-router',
+			'jquery',
+			'moment',
+			'bootstrap-less/bootstrap/bootstrap.less'
 		]
 	},
 	output: {
-		path: "./dist",
-		filename: "js/[name].js"
+		path: __dirname + '/dist',
+		filename: "js/app.js"
 	},
 	plugins: [
 		new copyWebpackPlugin([ { from: './src/index.html' } ]),
-
-		// CHUNKS //
-		new webpack.optimize.CommonsChunkPlugin("./js/init.js")
+		new webpack.optimize.CommonsChunkPlugin("vendors", "./js/vendors.js", Infinity)
 	],
 	module: {
 		loaders: [

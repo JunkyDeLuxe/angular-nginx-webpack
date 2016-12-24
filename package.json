@@ -19,19 +19,15 @@
     "bootstrap-less": "^3.3.8",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
-    "del": "^2.2.2",
     "file-loader": "^0.9.0",
-    "gulp": "^3.9.1",
-    "gulp-dest": "^0.2.3",
     "html-loader": "^0.4.4",
     "jquery": "^3.1.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "lodash": "^4.17.2",
     "moment": "^2.17.1",
     "style-loader": "^0.13.1",
-    "vinyl-paths": "^2.1.0",
     "webpack": "^1.14.0",
-    "webpack-stream": "^3.2.0",
     "webpack-vendor-chunk-plugin": "^1.0.0"
   }
 }
