@@ -9,6 +9,7 @@ import _ from 'lodash';
 
 /* custom angular modules */
 import home from './home/home-module';
+import login from './login/login-module';
 
 /* LESS */
 import './app-less.js';
@@ -17,7 +18,8 @@ angular.module('app',
 	[
 		uirouter,
 		uibootstrap,
-		home
+		home,
+		login
 	]).config(function ($urlRouterProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 		$urlRouterProvider.otherwise('/');

@@ -1,0 +1,27 @@
+<div class="container padding-top-lg padding-bottom-lg">
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Login
+				</div>
+				<div class="panel-body">
+					<form role="form" name="loginForm" ng-submit="vm.submit()" autocomplete="off">
+						<fieldset ng-disabled="vm.ongoing">
+							<div class="form-group has-feedback" ng-class="{ 'has-error': loginForm.email.$dirty && loginForm.email.$invalid }">
+								<label for="email" class="control-label">Email</label>
+								<input type="email" class="form-control" id="email" name="email" placeholder="Login" ng-model="vm.req.email" required autofocus>
+							</div>
+							<div class="form-group" ng-class="{ 'has-error': loginForm.password.$dirty && loginForm.password.$invalid }">
+								<label for="password" class="control-label">Password</label>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="vm.req.password" required>
+							</div>
+							<a href="" ui-sref="lost({ email: vm.req.email })">Lost</a>
+							<button type="submit" class="btn btn-primary pull-right" ng-disabled="loginForm.$invalid">Valider</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
