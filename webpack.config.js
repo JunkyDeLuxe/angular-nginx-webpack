@@ -1,6 +1,8 @@
+var path = require('path');
 var webpack = require('webpack');
 var copyWebpackPlugin = require('copy-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
+var cleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -19,6 +21,7 @@ module.exports = {
 		filename: "js/app.js"
 	},
 	plugins: [
+		new cleanWebpackPlugin(['dist'], { root: path.resolve(__dirname + 'dist'), verbose: true, dry: false }),
 		new copyWebpackPlugin([ { from: './src/index.html' } ]),
 		new webpack.optimize.CommonsChunkPlugin("vendors", "./js/vendors.js", Infinity),
 		new extractTextPlugin("./css/styles.css")
