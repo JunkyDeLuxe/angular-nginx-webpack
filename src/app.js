@@ -12,7 +12,7 @@ import home from './home/home-module';
 import login from './login/login-module';
 
 /* LESS */
-import './app-less.js';
+import './app-module.less';
 
 angular.module('app', 
 	[
