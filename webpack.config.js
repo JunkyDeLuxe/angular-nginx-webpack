@@ -21,7 +21,7 @@ module.exports = {
 		filename: "js/app.js"
 	},
 	plugins: [
-		new cleanWebpackPlugin(['dist'], { root: path.resolve(__dirname + 'dist'), verbose: true, dry: false }),
+		new cleanWebpackPlugin(['dist'], { root: path.resolve(__dirname), verbose: true, dry: false }),
 		new copyWebpackPlugin([ { from: './src/index.html' } ]),
 		new webpack.optimize.CommonsChunkPlugin("vendors", "./js/vendors.js", Infinity),
 		new extractTextPlugin("./css/styles.css")
@@ -41,7 +41,10 @@ module.exports = {
 			{
 				test: /\.html$/,
 				exclude: '/node_modules',
-				loader: "html-loader",
+				// Will copy stringified html sources for each module in app.js //
+				loader: "html-loader" 
+				// Will copy html files sources into their own directory html file with extract loader //
+				//loader: 'file-loader?name=[path][name].[ext]!extract-loader!html-loader'
 			},
 			{
 				test: /\.less$/,
