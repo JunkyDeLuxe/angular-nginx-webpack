@@ -8,19 +8,20 @@ var __currentPath = path.resolve(__dirname);
 
 module.exports = {
 	entry: {
-		app: __currentPath + '/src/app.js',
+		app: __currentPath + '/../src/app.js',
 		vendors: ['lodash', 'angular', 'angular-ui-router', 'angular-ui-bootstrap', 'jquery', 'moment']
 	},
 	output: {
-		path: __dirname + '/dist',
+		path: __dirname + '/../dist',
 		filename: "js/app.js"
 	},
 	module: {
 		loaders: [
 			{
-				test: /\.js$/,
+				// test: /\.js$/,
+				test: /.*\/src\/.*\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader'
+				loader: 'ng-annotate!babel-loader'
 			},
 			{
 			 	test: /\.(jpe?g|png|gif)$/i,
@@ -51,7 +52,7 @@ module.exports = {
 	},
 	plugins: [
 		new cleanWebpackPlugin(['dist'], { root: __currentPath, verbose: true, dry: false }),
-		new copyWebpackPlugin([ { from: __currentPath + '/src/index.html' } ]),
+		new copyWebpackPlugin([ { from: __currentPath + '/../src/index.html' } ]),
 		new webpack.optimize.CommonsChunkPlugin('vendors',  './js/vendors.js', Infinity),
 		new extractTextPlugin('./css/styles.css')
 	]
