@@ -20,7 +20,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'eslint-loader!ng-annotate!babel-loader'
+				loader: 'eslint-loader!ng-annotate!babel-loader?presets[]=es2015&cacheDirectory'
 			},
 			{
 			 	test: /\.(jpe?g|png|gif)$/i,
