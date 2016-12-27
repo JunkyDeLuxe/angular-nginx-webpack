@@ -18,10 +18,9 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				// test: /\.js$/,
-				test: /.*\/src\/.*\.js$/,
+				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'ng-annotate!babel-loader'
+				loader: 'eslint-loader!ng-annotate!babel-loader'
 			},
 			{
 			 	test: /\.(jpe?g|png|gif)$/i,
@@ -49,6 +48,10 @@ module.exports = {
 				loader: 'file-loader?name=/fonts/[name].[ext]'
 			}
 		]
+	},
+	eslint: {
+		configFile: __currentPath + '/../.eslintrc',
+		formatter: require('eslint-friendly-formatter')
 	},
 	plugins: [
 		new cleanWebpackPlugin(['dist'], { root: __currentPath, verbose: true, dry: false }),

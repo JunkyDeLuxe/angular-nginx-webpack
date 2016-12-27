@@ -20,7 +20,7 @@ angular.module('app',
 		uibootstrap,
 		home,
 		login
-	]).config(function ($urlRouterProvider, $locationProvider) {
+	]).config(/*@ngInject*/ function ($urlRouterProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 		$urlRouterProvider.otherwise('/');
 	});

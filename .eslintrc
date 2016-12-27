@@ -1,0 +1,37 @@
+{
+	"env": {
+		"amd": true,
+		"node": true,
+		"browser": true,
+		"jasmine": true,
+		"es6": true
+	},
+	"ecmaFeatures": {
+		"modules": true
+	},
+	"plugins": [
+		"angular"
+	],
+	"rules": {
+		"no-console": 2,
+		"eqeqeq": 2,
+		"quotes": [
+			0,
+			"single"
+		],
+		"strict": 0,
+		"curly": [
+			2,
+			"multi-line"
+		],
+		"eol-last": 0,
+		"angular/ng_on_watch": 0,
+		"angular/ng_no_services": 0
+	},
+	"globals": {
+		"angular": true,
+		"_": true,
+		"moment": true,
+		"$": true
+	}
+}

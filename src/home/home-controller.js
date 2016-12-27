@@ -1,4 +1,4 @@
-export default class HomeController {
+export default /*@ngInject*/ class HomeController {
 	constructor() {
 		this.name = 'World';
 		this.newName = "Hello";
