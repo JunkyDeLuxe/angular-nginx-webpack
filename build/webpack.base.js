@@ -16,7 +16,7 @@ var __currentPath = path.resolve(__dirname);
 var config = {
 	entry: {
 		app: __currentPath + '/../src/app.js',
-		vendors: ['lodash', 'angular', 'angular-ui-router', 'angular-ui-bootstrap', 'jquery', 'moment']
+		vendors: ['lodash', 'angular', 'angular-ui-router', 'angular-ui-bootstrap', 'angular-cookies', 'angular-translate', 'angular-translate-loader-static-files', 'angular-translate-storage-local', 'angular-dynamic-locale', 'jquery', 'moment']
 	},
 	output: {
 		path: __dirname + '/../dist',
@@ -36,6 +36,10 @@ var config = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'eslint-loader!ng-annotate!babel-loader?presets[]=es2015&cacheDirectory'
+			},
+			{ 
+				test: /\.json$/, 
+				loader: "json-loader?name=/locales/[name].[ext]"
 			},
 			{
 			 	test: /\.(jpe?g|png|gif)$/i,
