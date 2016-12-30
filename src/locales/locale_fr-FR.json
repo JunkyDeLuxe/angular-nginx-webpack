@@ -1,0 +1,94 @@
+{
+	"languages": {
+		"fr-FR": "Français",
+		"en-US": "English"
+	},
+	"errors": {
+		"not-found": "Page non trouvée",
+		"unauthorized": "Page non autorisée",
+		"network-error": "Erreur réseau",
+		"unavailable-service": "Service indisponible",
+		"unexpected-error": "Erreur inattendue"
+	},
+	"commons": {
+		"actions": {
+			"save": "Sauvegarder",
+			"close": "Fermer",
+			"submit": "Envoyer"
+		}
+	},
+	"header": {
+		"login": "Connexion",
+		"logout": "Déconnexion",
+		"signup": "Inscription"
+	},
+	"signup": {
+		"title": "Inscription",
+		"labels": {
+			"gender": "Sexe",
+			"email": "Email",
+			"firstname": "Prénom",
+			"lastname": "Nom",
+			"password": "Mot de passe",
+			"confirmPassword": "Confirmation"
+		},
+		"placeholders": {
+			"gender": "Sexe",
+			"email": "Email",
+			"firstname": "Prénom",
+			"lastname": "Nom",
+			"password": "Mot de passe",
+			"confirmPassword": "Confirmation du mot de passe"
+		},
+		"genders": {
+			"male": "Homme",
+			"female": "Femme",
+			"other": "Autre"
+		},
+		"errors": {
+			"user-already-exists": "L'email que vous avez saisi existe déjà."
+		}
+	},
+	"login": {
+		"title": "Connexion",
+		"lost": "Mot de passe perdu ?",
+		"labels": {
+			"email": "Email",
+			"password": "Mot de passe"
+		},
+		"placeholders": {
+			"email": "Email",
+			"password": "Mot de passe"
+		},
+		"errors": {
+			"invalid-credentials": "L'email et le mot de passe que vous avez saisi ne correspondent pas."
+		}
+	},
+	"lost": {
+		"title": "Mot de passe perdu",
+		"labels": {
+			"email": "Email"
+		},
+		"placeholders": {
+			"email": "Email"
+		},
+		"success": "Votre demande de réinitialisation de mot de passe vous a été envoyée par email.",
+		"errors": {
+			"user-not-found": "L'email que vous avez saisi n'existe pas."
+		}
+	},
+	"reset": {
+		"title": "Réinitialiser le mot de passe",
+		"labels": {
+			"password": "Mot de passe",
+			"confirmPassword": "Confirmation"
+		},
+		"placeholders": {
+			"password": "Mot de passe",
+			"confirmPassword": "Confirmation du mot de passe"
+		}
+	},
+	"dashboard": {
+		"title": "Tableau de bord"
+	}
+}

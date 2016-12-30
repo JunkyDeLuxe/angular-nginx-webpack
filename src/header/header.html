@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click="navbarCollapsed = !navbarCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" ng-href="{{session ? '/dashboard' : '/'}}">
+				Angular.JS Skeleton
+			</a>
+		</div>
+
+		<div class="navbar-collapse" uib-collapse="navbarCollapsed" ng-init="navbarCollapsed = true">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown" uib-dropdown>
+					<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true" uib-dropdown-toggle>{{ 'languages.' + language | translate }} <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" uib-dropdown-menu>
+						<li ng-repeat="key in vm.languages" ng-if="language !== key">
+							<a href="" ng-click="changeLanguage(key)">{{ 'languages.' + key | translate }}</a>
+						</li>
+					</ul>
+				</li>
+				<li ui-sref-active="active" ng-if="!session">
+					<a href="" ui-sref="signup">
+						{{ 'header.signup' | translate }}
+						<span class="fa fa-user fa-lg"></span>
+					</a>
+				</li>
+				<li ui-sref-active="active" ng-if="!session">
+					<a href="" ui-sref="login">
+						{{ 'header.login' | translate }}
+						<span class="fa fa-sign-in fa-lg"></span>
+					</a>
+				</li>
+				<li class="dropdown" uib-dropdown ng-if="session">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true" uib-dropdown-toggle>{{session.email}} <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" uib-dropdown-menu>
+						<li><a href="" ng-click="vm.logout()"><i class="fa fa-sign-out fa-lg"></i> {{ 'header.logout' | translate }}</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

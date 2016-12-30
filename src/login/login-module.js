@@ -3,10 +3,10 @@ import LoginService from './login-service';
 
 const loginConfig = function ($stateProvider) {
 	$stateProvider.state('login', {
-		url: '/login',
+		parent: 'app',
+		url: '/login?redirect',
 		template: require('./login.html'),
-		controller: 'LoginController',
-		controllerAs: 'login'
+		controller: 'LoginController as vm'
 	});
 };
 

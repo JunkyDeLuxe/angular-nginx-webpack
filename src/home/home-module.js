@@ -2,10 +2,10 @@ import HomeController from './home-controller';
 
 function HomeModuleConfig($stateProvider) {
 	$stateProvider.state('home', {
+		parent: 'app',
 		url: '/',
 		template: require('./home.html'),
-		controller: 'HomeController',
-		controllerAs: 'home'
+		controller: 'HomeController as vm'
 	});
 };
 
