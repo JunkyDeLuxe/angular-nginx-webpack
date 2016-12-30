@@ -3,10 +3,17 @@ var webpack = require('webpack');
 var copyWebpackPlugin = require('copy-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
 var cleanWebpackPlugin = require('clean-webpack-plugin');
+var eslintFormatter = require('eslint-friendly-formatter');
 
+var node_modules_dir = path.join(__dirname, '../node_modules');
 var __currentPath = path.resolve(__dirname);
 
-module.exports = {
+// var deps = [
+// 	'angular/angular.min.js',
+// 	'angular-ui-router/release/angular-ui-router.min.js'
+// ];
+
+var config = {
 	entry: {
 		app: __currentPath + '/../src/app.js',
 		vendors: ['lodash', 'angular', 'angular-ui-router', 'angular-ui-bootstrap', 'jquery', 'moment']
@@ -15,8 +22,16 @@ module.exports = {
 		path: __dirname + '/../dist',
 		filename: "js/app.js"
 	},
+	resolve: {
+		alias: {}
+	},
 	module: {
+		noParse: [], // Don’t parse files matching a RegExp or an array of RegExps.
 		loaders: [
+			// {
+			// 	test: path.resolve(node_modules_dir, deps[0]),
+			// 	loader: "expose?angular"
+			// },
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -32,8 +47,6 @@ module.exports = {
 				exclude: '/node_modules',
 				// Will copy stringified html sources for each module in app.js //
 				loader: "html-loader" 
-				// Will copy html files sources into their own directory html file with extract loader //
-				//loader: 'file-loader?name=[path][name].[ext]!extract-loader!html-loader'
 			},
 			{
 				test: /\.css$/,
@@ -51,7 +64,7 @@ module.exports = {
 	},
 	eslint: {
 		configFile: __currentPath + '/../.eslintrc',
-		formatter: require('eslint-friendly-formatter')
+		formatter: eslintFormatter
 	},
 	plugins: [
 		new cleanWebpackPlugin(['dist'], { root: __currentPath, verbose: true, dry: false }),
@@ -60,3 +73,13 @@ module.exports = {
 		new extractTextPlugin('./css/styles.css')
 	]
 };
+
+// load minified version of vendors instead of all sources code //
+// deps.forEach(function (dep) {
+// 	var depPath = path.resolve(node_modules_dir, dep);
+
+// 	config.resolve.alias[dep.split(path.sep)[0]] = depPath;
+// 	config.module.noParse.push(depPath);
+// });
+
+module.exports = config;

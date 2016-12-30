@@ -12,4 +12,7 @@ function HomeModuleConfig($stateProvider) {
 export default angular.module('app.home', [])
 	.config(HomeModuleConfig)
 	.controller('HomeController', HomeController)
+	.run(($templateCache) => {
+		$templateCache.put("test-include.html", require("./test-include.html"));
+	})
 	.name;
