@@ -10,7 +10,7 @@ const loginConfig = function ($stateProvider) {
 	});
 };
 
-export default angular.module('app.login', [])
+export default /*@ngInject*/ angular.module('app.login', [])
 	.config(loginConfig)
 	.controller('LoginController', LoginController)
 	.service('LoginService', LoginService)

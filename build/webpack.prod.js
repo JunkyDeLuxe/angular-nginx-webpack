@@ -5,6 +5,7 @@ var config = require('./webpack.base');
 config.plugins = config.plugins.concat([
 	new webpack.optimize.UglifyJsPlugin({
 		comments: false,
+		sourceMap: false,
 		compress: {
 			warnings: false
 		}
