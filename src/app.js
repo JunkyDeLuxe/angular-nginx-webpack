@@ -62,7 +62,8 @@ angular.module('app',
 		$translateProvider.useSanitizeValueStrategy(_.identity);
 
 		//Set default path to resolve locale in different languages.
-		tmhDynamicLocaleProvider.localeLocationPattern('angular/i18n/angular-locale_{{locale}}.js');
+		// tmhDynamicLocaleProvider.localeLocationPattern('angular/i18n/angular-locale_{{locale}}.js');
+		// tmhDynamicLocaleProvider.localeLocationPattern(require('angular-i18n/angular-locale_fr-fr.js'));
 		//Set default locale for $locale used for date, numbers filter by angular-js
 		tmhDynamicLocaleProvider.defaultLocale('fr-FR');
 	})

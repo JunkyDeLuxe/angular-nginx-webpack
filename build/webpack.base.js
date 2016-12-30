@@ -37,10 +37,6 @@ var config = {
 				exclude: /node_modules/,
 				loader: 'eslint-loader!ng-annotate!babel-loader?presets[]=es2015&cacheDirectory'
 			},
-			{ 
-				test: /\.json$/, 
-				loader: "json-loader?name=/locales/[name].[ext]"
-			},
 			{
 			 	test: /\.(jpe?g|png|gif)$/i,
 				exclude: '/node_modules',
@@ -63,6 +59,10 @@ var config = {
 			{ 
 				test: /\.(ttf|eot|svg|woff2|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
 				loader: 'file-loader?name=/fonts/[name].[ext]'
+			},
+			{
+				test: /\.json$/,
+				loader: 'file-loader?name=/locales/[name].[ext]'
 			}
 		]
 	},
@@ -72,7 +72,10 @@ var config = {
 	},
 	plugins: [
 		new cleanWebpackPlugin(['dist'], { root: __currentPath, verbose: true, dry: false }),
-		new copyWebpackPlugin([ { from: __currentPath + '/../src/index.html' } ]),
+		new copyWebpackPlugin([ 
+			{ from: __currentPath + '/../src/index.html' },
+			{ from: node_modules_dir + '/angular-i18n/angular-locale_fr-fr.js', to: __dirname + '/../dist/js/' }
+		]),
 		new webpack.optimize.CommonsChunkPlugin('vendors',  './js/vendors.js', Infinity),
 		new extractTextPlugin('./css/styles.css')
 	]
