@@ -16,7 +16,19 @@ var __currentPath = path.resolve(__dirname);
 var config = {
 	entry: {
 		app: __currentPath + '/../src/app.js',
-		vendors: ['lodash', 'angular', 'angular-ui-router', 'angular-ui-bootstrap', 'angular-cookies', 'angular-translate', 'angular-translate-loader-static-files', 'angular-translate-storage-local', 'angular-dynamic-locale', 'jquery', 'moment']
+		vendors: [
+			'lodash',
+			'angular',
+			'angular-ui-router',
+			'angular-ui-bootstrap',
+			'angular-cookies',
+			'angular-translate',
+			'angular-translate-loader-static-files',
+			'angular-translate-storage-local',
+			'angular-dynamic-locale',
+			'jquery',
+			'moment'
+		]
 	},
 	output: {
 		path: __dirname + '/../dist',
@@ -74,7 +86,9 @@ var config = {
 		new cleanWebpackPlugin(['dist'], { root: __currentPath, verbose: true, dry: false }),
 		new copyWebpackPlugin([ 
 			{ from: __currentPath + '/../src/index.html' },
-			{ from: node_modules_dir + '/angular-i18n/angular-locale_fr-fr.js', to: __dirname + '/../dist/js/' }
+			{ from: __currentPath + '/../src/locales', to: 'locales' },
+			{ from: node_modules_dir + '/angular-i18n/angular-locale_fr-fr.js', to: 'angular/i18n' },
+			{ from: node_modules_dir + '/angular-i18n/angular-locale_en-us.js', to: 'angular/i18n' }
 		]),
 		new webpack.optimize.CommonsChunkPlugin('vendors',  './js/vendors.js', Infinity),
 		new extractTextPlugin('./css/styles.css')
